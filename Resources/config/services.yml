@@ -1,0 +1,16 @@
+parameters:
+    trt_async.connection.factory.default_class: 'Trt\AsyncTasksBundle\Factory\RabbitMqConnectionFactory'
+    trt_async.listeners_register.class: 'Trt\AsyncTasksBundle\Service\ListenersRegister'
+
+services:
+    trt_async.mq.service:
+        class: %trt_async_tasks.mq.client_class%
+        arguments: [@trt_async.connection.factory, @logger, %trt_async_tasks.mq.exchange%]
+
+    trt_async.connection.factory:
+        class: %trt_async.connection.factory.default_class%
+        arguments:
+            - %trt_async_tasks.mq.connection_params%
+
+    trt_async.listeners_register.service:
+        class: %trt_async.listeners_register.class%
