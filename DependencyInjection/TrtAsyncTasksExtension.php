@@ -28,6 +28,7 @@ class TrtAsyncTasksExtension extends Extension
         $container->setParameter($this->getAlias().'.mq.host' ,$config['mq']['host']);
         $container->setParameter($this->getAlias().'.mq.port' ,$config['mq']['port']);
         $container->setParameter($this->getAlias().'.event.prefix' ,$config['event']['prefix']);
+        $container->setParameter('event_dispatcher.class', 'Trt\AsyncTasksBundle\Dispatcher\AsyncDispatcher');
 
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));

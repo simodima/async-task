@@ -39,10 +39,6 @@ class RabbitMqServiceOptionsTest extends RabbitMqBase
                 array('exchange' => 'my_exchange', 'exchange_type' => 'direct'),
                 false
             ),
-            'missing exchange_type options' => array(
-                array('exchange' => 'my_exchange'),
-                'Symfony\Component\OptionsResolver\Exception\MissingOptionsException'
-            ),
             'missing exchange options' => array(
                 array('exchange_type' => 'direct'),
                 'Symfony\Component\OptionsResolver\Exception\MissingOptionsException'

@@ -96,6 +96,7 @@ class RabbitMqService implements MqClientInterface
     {
         $optionsResolver = new OptionsResolver();
         $optionsResolver->setRequired(array('exchange', 'exchange_type'));
+        $optionsResolver->setDefaults(array('exchange_type' => 'direct'));
         $optionsResolver->setAllowedValues(array(
             'exchange_type' => array('direct', 'fanout'),
         ));
