@@ -1,5 +1,5 @@
 {
-    "name": "trt/resque-bundle",
+    "name": "trt/async-tasks-bundle",
     "type": "bundle",
     "description": "This bundle allows to dispatch asynchronous event in symfony2. It uses RabbitMQ  to send messages to the consumers..",
     "keywords": ["rabbitmq", "message", "symfony", "queue"],

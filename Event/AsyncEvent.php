@@ -12,7 +12,7 @@ namespace Trt\AsyncTasksBundle\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 
-class AsyncEvent extends Event implements \Serializable, AsyncEventInterface
+class AsyncEvent extends Event implements AsyncEventInterface
 {
     /**
      * Event data.

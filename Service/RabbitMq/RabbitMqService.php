@@ -98,7 +98,7 @@ class RabbitMqService implements MqClientInterface
         $optionsResolver->setRequired(array('exchange', 'exchange_type'));
         $optionsResolver->setDefaults(array('exchange_type' => 'direct'));
         $optionsResolver->setAllowedValues(array(
-            'exchange_type' => array('direct', 'fanout'),
+            'exchange_type' => array('direct'),
         ));
         $this->options = $optionsResolver->resolve($options);
     }
@@ -122,7 +122,7 @@ class RabbitMqService implements MqClientInterface
         if(!$this->hasQueue($queue)) {
             $this->addQueue($queue);
             $this->channel->queue_declare($queue, false, true, false, false);
-            $this->channel->queue_bind($queue, $this->getExchange());
+            $this->channel->queue_bind($queue, $this->getExchange(), $queue);
             $this->logger->info(sprintf("Queue %s declared.", $queue));
         }
     }
@@ -147,7 +147,7 @@ class RabbitMqService implements MqClientInterface
         if($this->isConnected()){
             $this->declareAndBindQueue($routingKey);
             $amqpMessage = new AMQPMessage($message, array('content_type' => 'text/plain', 'delivery_mode' => 2));
-            $this->channel->basic_publish($amqpMessage, $this->getExchange());
+            $this->channel->basic_publish($amqpMessage, $this->getExchange(), $routingKey);
             $this->logger->info(sprintf("Message %s published on %s queue", $message, $routingKey));
         }
     }

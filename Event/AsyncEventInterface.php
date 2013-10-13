@@ -10,7 +10,7 @@
 
 namespace Trt\AsyncTasksBundle\Event;
 
-interface AsyncEventInterface
+interface AsyncEventInterface extends \Serializable
 {
     /**
      * @param array $data
@@ -21,17 +21,6 @@ interface AsyncEventInterface
      * @return array
      */
     function getData();
-
-    /**
-     * @return string
-     */
-    function serialize();
-
-    /**
-     * @param string $serialized
-     */
-    function unserialize($serialized);
-
     /**
      * Get the event name.
      *
