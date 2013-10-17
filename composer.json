@@ -1,9 +1,9 @@
 {
     "name": "trt/async-tasks-bundle",
     "type": "bundle",
-    "description": "This bundle allows to dispatch asynchronous event in symfony2. It uses RabbitMQ  to send messages to the consumers..",
+    "description": "This bundle allows to dispatch asynchronous events in symfony2. It uses RabbitMQ to send messages to the consumers..",
     "keywords": ["rabbitmq", "message", "symfony", "queue"],
-    "homepage": "git@github.com:toretto460/resque-bundle.git",
+    "homepage": "https://github.com/toretto460/async-task",
     "authors": [
         {
             "name" : "Simone Di Maulo"
