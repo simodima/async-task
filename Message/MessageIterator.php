@@ -108,14 +108,12 @@ class MessageIterator implements \Iterator
         $contentType = $this->message->get('content_type');
 
         if($contentType === "text/plain"){
-            $this->message->setObjectMessage(unserialize($this->AMQMessage->body));
+            $this->message->setData(unserialize($this->AMQMessage->body));
         }elseif($contentType === "application/json"){
-            $this->message->setObjectMessage(json_decode($this->AMQMessage->body, true));
+            $this->message->setData(json_decode($this->AMQMessage->body, true));
         }else{
-            $this->message->setObjectMessage($this->AMQMessage->body);
+            $this->message->setData($this->AMQMessage->body);
         }
-
-        var_dump($this->message->getObjectMessage());
 
         $this->counter++;
     }

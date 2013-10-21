@@ -41,7 +41,7 @@ class Message implements MessageInterface
      *
      * @return mixed
      */
-    public function getObjectMessage()
+    public function getData()
     {
         return $this->message;
     }
@@ -51,7 +51,7 @@ class Message implements MessageInterface
      *
      * @param mixed $message
      */
-    public function setObjectMessage($message)
+    public function setData($message)
     {
         $this->message = $message;
     }

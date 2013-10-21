@@ -26,14 +26,14 @@ interface MessageInterface
      *
      * @return mixed
      */
-    public function getObjectMessage();
+    public function getData();
 
     /**
      * Set the processed message.
      *
      * @param mixed $message
      */
-    public function setObjectMessage($message);
+    public function setData($message);
 
     /**
      * Get the message property.

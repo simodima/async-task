@@ -55,7 +55,7 @@ class WorkersCommand extends ContainerAwareCommand
                         $output,
                         sprintf("<info>%s</info> Listener working on message given from <info>%s</info> queue", get_class($listener), $queue)
                     );
-                    $listener->work($message->getObjectMessage());
+                    $listener->work($message->getData());
                 }
 
                 //Process the message
