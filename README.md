@@ -39,7 +39,7 @@ Add the AsyncTasksBundle to your composer.json and type composer install.
     "require": {
         "php": ">=5.3.3",
         ....
-        "trt/resque-bundle": "~1.0",
+        "trt/async-tasks-bundle": "dev-master",
         ...
     },
 ```
@@ -62,15 +62,15 @@ public function registerBundles()
 ```yaml
 trt_async_tasks:
     # This prefix allows the dispatcher to detect async event,
-    # if you want use another prefix put here ↙
+    # if you want use another prefix put here
     event:
         prefix: async_
     mq:
-        # The rabbitMq host / port ↙
+        # The rabbitMq host / port
         connection_params:
             host: %mq_host%
             port: %mq_port%
-        # Define the exchange name for rabbitmq ↙
+        # Define the exchange name for rabbitmq
         exchange:
             exchange: 'exchange_symfony_events'
 ```
