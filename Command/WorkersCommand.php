@@ -45,7 +45,7 @@ class WorkersCommand extends ContainerAwareCommand
         $listenersRegister = $this->getContainer()->get('trt_async.listeners_register.service');
         
         $listeners = $listenersRegister->getListeners($queue);
-        if (count($listener)) {
+        if (count($listeners)) {
             $mqService->define($queue);
         }
 
