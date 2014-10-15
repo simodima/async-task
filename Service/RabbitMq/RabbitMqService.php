@@ -116,6 +116,11 @@ class RabbitMqService implements MqClientInterface
 
         return $this;
     }
+    
+    public function define($queue)
+    {
+        $this->declareAndBindQueue($queue);
+    }
 
     protected function declareAndBindQueue($queue)
     {
