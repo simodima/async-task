@@ -43,12 +43,16 @@ class WorkersCommand extends ContainerAwareCommand
         $queue = $input->getArgument('queue_name');
         $mqService = $this->getContainer()->get('trt_async.mq.service');
         $listenersRegister = $this->getContainer()->get('trt_async.listeners_register.service');
+        
+        $listeners = $listenersRegister->getListeners($queue);
+        if (count($listener)) {
+            $mqService->define($queue);
+        }
 
         $messageStream = $mqService->subscribe($queue);
         $this->writeOut($output, "Subscribed to <info>$queue</info>");
 
         foreach($messageStream as $message){
-            $listeners = $listenersRegister->getListeners($queue);
             try{
                 foreach($listeners as $listener){
                     $this->writeOut(

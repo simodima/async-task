@@ -32,7 +32,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
 
         $this->mockedMqService = $this->getMockBuilder('Trt\AsyncTasksBundle\Service\MqClientInterface')
             ->disableOriginalConstructor()
-            ->setMethods(array('publish','subscribe','disconnect'))
+            ->setMethods(array('publish','subscribe','disconnect','define'))
             ->getMock();
 
         $callback = function($id){

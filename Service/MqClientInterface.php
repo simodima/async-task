@@ -15,6 +15,8 @@ interface MqClientInterface {
 
     public function disconnect();
 
+    public function define($queue);
+
     public function subscribe($queue);
 
     public function publish($routingKey, $message);
