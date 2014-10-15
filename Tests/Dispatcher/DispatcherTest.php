@@ -34,11 +34,12 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->setMethods(array('publish','subscribe','disconnect'))
             ->getMock();
-
-        $callback = function($id){
+        
+        $that = $this;
+        $callback = function($id) use  ($that) {
             $valueMap = array(
-                'trt_async.mq.service' =>  $this->mockedMqService,
-                'logger' => $this->mockedLogger
+                'trt_async.mq.service' =>  $that->mockedMqService,
+                'logger' => $that->mockedLogger
             );
 
             return $valueMap[$id];
